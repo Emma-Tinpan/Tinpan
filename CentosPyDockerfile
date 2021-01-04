@@ -1,0 +1,13 @@
+FROM centos:7
+
+RUN set -x && \
+  yum install -y https://centos7.iuscommunity.org/ius-release.rpm && \
+  yum install -y python37u python37u-libs python37u-devel python37u-pip
+  ln -s /bin/python3.7 /bin/python && \
+  unlink /bin/python && \
+  ls -s /bin/python3 /bin/ptyhon && \
+  ls -s /bin/pip3.7 /bin/pip && \
+  pip install -U pip && \
+  pip install scikit-lean && \
+  pip install pandas && \
+  pip install requests && \
