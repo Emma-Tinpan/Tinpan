@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    #ビルドして起動
+    #build: .
+    image: postgres:11
+    containername: postgresql_db
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_DB: testdb
+      POSTGRES_PASSWORD: admin
+    volumes:
+        - ./docker-entrypoint-initdb.d:/docker-entryoint-initdb.d
