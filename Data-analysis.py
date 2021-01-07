@@ -11,3 +11,9 @@ print(iris_target_pd.head())
 #join（横方向）
 iris_data = pandas.concat([iris_pd,iris_target_pd],axis=1)
 print(iris_data)
+
+#pandas前処理
+#dataype
+print(iris_data.dtypes)
+#pandasの.describe()
+print(iris_data.describe())
