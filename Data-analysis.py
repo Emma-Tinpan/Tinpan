@@ -2,13 +2,14 @@ import pandas
 from sklearn.datasets import load_iris
 import random
 import numpy
+from sklearn.cluster import KMeans
 
 #from sklearn import cluster
 
 iris = load_iris()
 iris_pd = pandas.DataFrame(iris.data, columns=iris.feature_names)
-iris_target_pd = pandas.DataFrame(iris.target)
-
+iris_target_pd_df = pandas.DataFrame(iris.target)
+iris_target_pd = iris_target_pd_bf.rename( columns={'Unnamed: 0':'cluster'}, inplace=True )
 print(iris_pd.head())
 print(iris_target_pd.head())
 
@@ -40,3 +41,11 @@ data2 = data_shuffle_1[120:]
 
 print(data1)
 print(data2)
+
+#k-means
+kmeans = KMeans(n_clusters=3, random_state=0)
+clusters = kmeans.fit(data1)
+data1['cluster'] = clusters.labels_
+
+print(data1['cluster'].unique())
+data1.head()
