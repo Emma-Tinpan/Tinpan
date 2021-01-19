@@ -3,7 +3,10 @@ $ docker run --detach \
     --publish 443:443 --publish 80:80 \
     --name gitlab \
     --restart always \
-    --volume /srv/gitlab/config:/etc/gitlab \
-    --volume /srv/gitlab/logs:/var/log/gitlab \
-    --volume /srv/gitlab/data:/var/opt/gitlab \
+    --volume $GITLAB_HOME/config:/etc/gitlab \
+    --volume $GITLAB_HOME/logs:/var/log/gitlab \
+    --volume $GITLAB_HOME/data:/var/opt/gitlab \
     gitlab/gitlab-ce:latest
+
+//コンテナ起動後
+docker exec -it gitlab gitlab-ctl reconfigure
