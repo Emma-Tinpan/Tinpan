@@ -23,3 +23,11 @@ func main() {
 	q, r := div (19, 7)
 	fmt.Printf("商=%d 余剰=%d\n", q, r)
 }
+
+//定数の定義
+const (
+	x=1
+	y=2
+	z=3
+
+)
